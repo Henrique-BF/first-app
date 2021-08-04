@@ -11,7 +11,8 @@ class BlogController extends Controller
     
     public function index()
     {
-        return View('blog.index');
+        $posts = Post::all();
+        return View('blog.index',['posts' => $posts]);
     }
 
     public function show(Post $post)
