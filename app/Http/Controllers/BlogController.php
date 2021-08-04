@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Http\Resources\UserCollection;
 
 
 class BlogController extends Controller
@@ -11,7 +12,7 @@ class BlogController extends Controller
     
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id' , 'desc')->paginate(2);
         return View('blog.index',['posts' => $posts]);
     }
 

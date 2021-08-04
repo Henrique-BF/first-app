@@ -9,7 +9,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::all()->take(3);
         return view('page.home', ['posts' => $posts]);
     }
     
